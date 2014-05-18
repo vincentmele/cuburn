@@ -64,6 +64,7 @@ def main(worker_addr):
 
     # Spawn two request loops to take advantage of CUDA pipelining.
     spawn(request_loop)
+    gevent.sleep(0)
     request_loop()
 
 if __name__ == "__main__":
