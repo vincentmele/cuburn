@@ -108,14 +108,14 @@ class PILOutput(Output, ClsMod):
                 alpha = self._convert_buf(buf[:,:,3])
                 return {'_color.jpg': out, '_alpha.jpg': alpha}, []
             return {'.jpg': out}, {}
-        return {'.'+self.type: self._convert_buf(buf)}, []
+        return {str('.'+self.type): self._convert_buf(buf)}, []
 
     @property
     def suffix(self):
         if self.type == 'jpeg':
             if self.alpha: return '_color.jpg'
             return '.jpg'
-        return '.'+self.type
+        return str('.'+self.type)
 
 class X264Output(Output, ClsMod):
     lib = pixfmtlib
