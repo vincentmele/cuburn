@@ -133,6 +133,7 @@ def main(addrs):
             rq = cli.put(task)
             print ' >', task.id
             spawn(get_result, cli, task, rq)
+            gevent.sleep(0)
     except KeyboardInterrupt:
         print 'Interrupt received, flushing'
 
